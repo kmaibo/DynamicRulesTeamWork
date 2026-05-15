@@ -1,10 +1,13 @@
 package pro.sky.telegrambot.dataBase;
 
-import jakarta.persistence.EntityManagerFactory;
+import javax.persistence.EntityManagerFactory;
+
+
+
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.jdbc.DataSourceBuilder;
-import org.springframework.boot.jpa.EntityManagerFactoryBuilder;
-import org.springframework.boot.persistence.autoconfigure.EntityScan;
+import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -17,11 +20,11 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableJpaRepositories(
-        basePackages = "org.ted.teamworkbankapplication.repository.primary",
+        basePackages = "pro.sky.telegrambot.repository.primary",
         entityManagerFactoryRef = "primaryEntityManagerFactory",
         transactionManagerRef = "primaryTransactionManager"
 )
-@EntityScan(basePackages = "org.ted.teamworkbankapplication")
+@EntityScan(basePackages = "pro.sky.telegrambot")
 public class PrimaryDBConfig {
 
     @Primary
@@ -42,7 +45,7 @@ public class PrimaryDBConfig {
             @Qualifier("primaryDataSource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("org.ted.teamworkbankapplication")
+                .packages("pro.sky.telegrambot")
                 .persistenceUnit("primary")
                 .build();
     }
