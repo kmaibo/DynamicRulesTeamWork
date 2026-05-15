@@ -3,11 +3,11 @@ package pro.sky.telegrambot.service.bankOperation;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import pro.sky.telegrambot.enums.TypeTransactions;
-import pro.sky.telegrambot.model.Account;
-import pro.sky.telegrambot.model.Transactions;
-import pro.sky.telegrambot.repostory.AccountRepository;
-import pro.sky.telegrambot.repostory.CardRepository;
-import pro.sky.telegrambot.repostory.TransactionsRepository;
+import pro.sky.telegrambot.model.primary.Account;
+import pro.sky.telegrambot.model.primary.Transactions;
+import pro.sky.telegrambot.repository.primary.AccountRepository;
+import pro.sky.telegrambot.repository.primary.CardRepository;
+import pro.sky.telegrambot.repository.primary.TransactionsRepository;
 
 import java.math.BigDecimal;
 

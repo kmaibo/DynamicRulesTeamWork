@@ -8,11 +8,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pro.sky.telegrambot.model.tgBot.BotState;
-import pro.sky.telegrambot.model.tgBot.ProductEntity;
-import pro.sky.telegrambot.model.tgBot.UserEntity;
-import pro.sky.telegrambot.repository.tgBot.BotStateRepository;
-import pro.sky.telegrambot.repository.tgBot.UserRepository;
+import pro.sky.telegrambot.model.telegram.BotState;
+import pro.sky.telegrambot.model.telegram.ProductEntity;
+import pro.sky.telegrambot.model.telegram.UserEntity;
+import pro.sky.telegrambot.repository.telegram.BotStateRepository;
+import pro.sky.telegrambot.repository.telegram.UserTgBotRepository;
+
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -27,7 +28,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
     private TelegramBot telegramBot;
 
     @Autowired
-    private UserRepository userRepository;
+    private UserTgBotRepository userRepository;
 
     @Autowired
     private BotStateRepository botStateRepository;

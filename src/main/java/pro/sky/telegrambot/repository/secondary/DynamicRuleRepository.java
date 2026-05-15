@@ -1,7 +1,7 @@
-package pro.sky.telegrambot.repostory.rule;
+package pro.sky.telegrambot.repository.secondary;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pro.sky.telegrambot.model.rule.RuleEntity;
+import pro.sky.telegrambot.model.secondary.RuleEntity;
 
 
 import java.util.Optional;

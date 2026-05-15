@@ -1,11 +1,11 @@
-package pro.sky.telegrambot.model.tgBot;
+package pro.sky.telegrambot.model.telegram;
 import javax.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "user_tgbot")
-public class Users {
+public class UsersTgBot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,11 +15,11 @@ public class Users {
     private String username;
     private LocalDateTime registrationDate;
 
-    public Users(String username) {
+    public UsersTgBot(String username) {
         this.username = username;
     }
 
-    public Users() {
+    public UsersTgBot() {
 
     }
 

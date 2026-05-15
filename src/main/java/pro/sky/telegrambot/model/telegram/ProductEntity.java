@@ -1,4 +1,4 @@
-package pro.sky.telegrambot.model.tgBot;
+package pro.sky.telegrambot.model.telegram;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

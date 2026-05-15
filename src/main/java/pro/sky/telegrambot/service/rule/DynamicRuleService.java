@@ -5,9 +5,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pro.sky.telegrambot.dto.DynamicRuleDto;
-import pro.sky.telegrambot.model.rule.QueryConditionEntity;
-import pro.sky.telegrambot.model.rule.RuleEntity;
-import pro.sky.telegrambot.repostory.rule.DynamicRuleRepository;
+import pro.sky.telegrambot.model.secondary.QueryConditionEntity;
+import pro.sky.telegrambot.model.secondary.RuleEntity;
+import pro.sky.telegrambot.repository.secondary.DynamicRuleRepository;
 
 import javax.validation.Valid;
 import java.util.List;

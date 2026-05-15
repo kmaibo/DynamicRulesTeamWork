@@ -1,4 +1,4 @@
-package pro.sky.telegrambot.repostory.rule;
+package pro.sky.telegrambot.repository.secondary;
 
 import java.util.UUID;
 

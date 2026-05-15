@@ -1,4 +1,4 @@
-package pro.sky.telegrambot.repostory.rule;
+package pro.sky.telegrambot.repository.secondary;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

@@ -3,7 +3,7 @@ package pro.sky.telegrambot.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pro.sky.telegrambot.model.Users;
+import pro.sky.telegrambot.model.primary.Users;
 import pro.sky.telegrambot.service.UserService;
 
 @RestController

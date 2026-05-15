@@ -3,7 +3,7 @@ package pro.sky.telegrambot.controller.bankOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pro.sky.telegrambot.model.Card;
+import pro.sky.telegrambot.model.primary.Card;
 import pro.sky.telegrambot.service.CardService;
 
 @RestController

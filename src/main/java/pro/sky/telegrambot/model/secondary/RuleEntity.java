@@ -1,4 +1,4 @@
-package pro.sky.telegrambot.model.rule;
+package pro.sky.telegrambot.model.secondary;
 
 import javax.persistence.*;
 import lombok.AllArgsConstructor;

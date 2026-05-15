@@ -1,8 +1,8 @@
 package pro.sky.telegrambot.service;
 
 import org.springframework.stereotype.Service;
-import pro.sky.telegrambot.model.Account;
-import pro.sky.telegrambot.repostory.AccountRepository;
+import pro.sky.telegrambot.model.primary.Account;
+import pro.sky.telegrambot.repository.primary.AccountRepository;
 
 @Service
 public class AccountService {

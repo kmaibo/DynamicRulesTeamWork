@@ -2,7 +2,7 @@ package pro.sky.telegrambot.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pro.sky.telegrambot.model.Transactions;
+import pro.sky.telegrambot.model.primary.Transactions;
 import pro.sky.telegrambot.service.TransactionsService;
 
 import java.util.List;

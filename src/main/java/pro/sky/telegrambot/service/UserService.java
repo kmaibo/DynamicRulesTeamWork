@@ -1,8 +1,8 @@
 package pro.sky.telegrambot.service;
 
 import org.springframework.stereotype.Service;
-import pro.sky.telegrambot.model.Users;
-import pro.sky.telegrambot.repostory.UserRepository;
+import pro.sky.telegrambot.model.primary.Users;
+import pro.sky.telegrambot.repository.primary.UserRepository;
 
 import java.util.List;
 

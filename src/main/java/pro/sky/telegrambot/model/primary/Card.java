@@ -1,4 +1,4 @@
-package pro.sky.telegrambot.model;
+package pro.sky.telegrambot.model.primary;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import pro.sky.telegrambot.enums.TypeCard;

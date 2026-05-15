@@ -1,7 +1,7 @@
-package pro.sky.telegrambot.repostory;
+package pro.sky.telegrambot.repository.primary;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pro.sky.telegrambot.model.Card;
+import pro.sky.telegrambot.model.primary.Card;
 
 
 public interface CardRepository extends JpaRepository<Card, Long> {

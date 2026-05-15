@@ -1,7 +1,6 @@
-package pro.sky.telegrambot.model;
+package pro.sky.telegrambot.model.primary;
 
 import javax.persistence.*;
-import lombok.*;
 
 import java.time.LocalDate;
 
