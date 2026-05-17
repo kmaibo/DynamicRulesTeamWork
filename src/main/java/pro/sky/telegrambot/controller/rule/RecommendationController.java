@@ -15,6 +15,11 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * REST контроллер для получения персонализированных рекомендаций.
+ * Фильтрует динамические правила по пользователю и возвращает применимые рекомендации.
+ */
+
 @RestController
 @RequestMapping("/recommendation")
 @RequiredArgsConstructor

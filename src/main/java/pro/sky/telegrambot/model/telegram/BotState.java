@@ -2,6 +2,10 @@ package pro.sky.telegrambot.model.telegram;
 
 import javax.persistence.*;
 
+/**
+ * Состояние взаимодействия Telegram-пользователя с ботом.
+ */
+
 @Entity
 @Table(name = "bot_users_state")
 public class BotState {
@@ -11,8 +15,12 @@ public class BotState {
     @Column(name = "first_time")
     private boolean firstTime = true;
 
-    public BotState() {}
-    public BotState(Long chatId) { this.chatId = chatId; }
+    public BotState() {
+    }
+
+    public BotState(Long chatId) {
+        this.chatId = chatId;
+    }
 
     public Long getChatId() {
         return chatId;
@@ -22,6 +30,11 @@ public class BotState {
         this.chatId = chatId;
     }
 
-    public boolean isFirstTime() { return firstTime; }
-    public void setFirstTime(boolean firstTime) { this.firstTime = firstTime; }
+    public boolean isFirstTime() {
+        return firstTime;
+    }
+
+    public void setFirstTime(boolean firstTime) {
+        this.firstTime = firstTime;
+    }
 }

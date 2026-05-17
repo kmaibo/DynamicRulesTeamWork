@@ -3,26 +3,50 @@ package pro.sky.telegrambot.service.rule;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
+
+/**
+ * Репозиторий пользовательских знаний и аналитических проверок.
+ * Предоставляет методы для вычисления пользовательских
+ * характеристик и проверки бизнес-условий на основе
+ * транзакционной активности.
+ */
+
 @Repository
 public class UserKnowledgeRepository {
-public boolean isUserOf(UUID userId, String productType) {
 
-    return false;
-}
+    /**
+     * Проверяет, является ли пользователь клиентом продукта.
+     * SQL-логика: ищет связь user-product в таблице user_products
+     */
 
-public boolean isActiveUserOf(UUID userId, String productType) {
+    public boolean isUserOf(UUID userId, String productType) {
 
-    return false;
-}
+        return false;
+    }
 
-public boolean compareTransactionSum(UUID userId, String productType,
-                                     String transactionType, String operator, int constant) {
+    /**
+     * Проверяет активность пользователя по продукту.
+     * Активный пользователь — тот, кто совершал операции за последние N дней.
+     */
 
-    return false;
-}
+    public boolean isActiveUserOf(UUID userId, String productType) {
 
-public boolean compareDepositWithdraw(UUID userId, String productType, String operator) {
+        return false;
+    }
 
-    return false;
-}
+    /**
+     * Сравнивает сумму транзакций пользователя с заданным условием.
+     * Поддерживает операторы: >, <, =, >=, <=
+     */
+
+    public boolean compareTransactionSum(UUID userId, String productType,
+                                         String transactionType, String operator, int constant) {
+
+        return false;
+    }
+
+    public boolean compareDepositWithdraw(UUID userId, String productType, String operator) {
+
+        return false;
+    }
 }

@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.*;
 import pro.sky.telegrambot.model.primary.Card;
 import pro.sky.telegrambot.service.CardService;
 
+/**
+ * REST контроллер для управления банковскими картами.
+ */
+
 @RestController
 @RequestMapping("/cards")
 public class CardController {
@@ -17,9 +21,10 @@ public class CardController {
     }
 
     @PostMapping
-    public ResponseEntity<Card> create(Card card, @RequestParam long accountId) {
-        cardService.create(card,accountId);
-        return ResponseEntity.status(HttpStatus.CREATED).body(card);
+    public ResponseEntity<Card> create(@RequestBody Card card,
+                                       @RequestParam long accountId) {
+        Card create = cardService.create(card, accountId);
+        return ResponseEntity.status(HttpStatus.CREATED).body(create);
     }
 
     @DeleteMapping("/{id}")
@@ -29,11 +34,8 @@ public class CardController {
     }
 
     @GetMapping("/{number}")
-    public ResponseEntity<Card> findByNumber(@PathVariable String number) {
+    public ResponseEntity<Void> findByNumber(@PathVariable String number) {
         cardService.findByNumber(number);
-        if (cardService.findByNumber(number) != null) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok().body(cardService.findByNumber(number));
+        return ResponseEntity.noContent().build();
     }
 }

@@ -1,6 +1,5 @@
 package pro.sky.telegrambot.controller.rule;
 
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +10,10 @@ import pro.sky.telegrambot.service.rule.DynamicRuleService;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
+
+/**
+ * REST контроллер для управления динамическими правилами рекомендаций.
+ */
 
 @RestController
 @RequestMapping("/rule")

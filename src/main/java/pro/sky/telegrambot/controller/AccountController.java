@@ -7,6 +7,10 @@ import pro.sky.telegrambot.service.AccountService;
 
 import java.net.URI;
 
+/**
+ * REST контроллер для управления банковскими счетами.
+ */
+
 @RestController
 @RequestMapping("/accounts")
 public class AccountController {

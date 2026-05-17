@@ -6,13 +6,18 @@ import pro.sky.telegrambot.model.primary.Card;
 import pro.sky.telegrambot.repository.primary.AccountRepository;
 import pro.sky.telegrambot.repository.primary.CardRepository;
 
+
+/**
+ * Сервис для управления банковскими картами
+ */
+
 @Service
 public class CardService {
 
     private final CardRepository cardRepository;
     private final AccountRepository accountRepository;
 
-    public CardService(CardRepository cardRepository,AccountRepository accountRepository) {
+    public CardService(CardRepository cardRepository, AccountRepository accountRepository) {
         this.cardRepository = cardRepository;
         this.accountRepository = accountRepository;
     }
@@ -31,6 +36,5 @@ public class CardService {
     public Card findByNumber(String number) {
         return cardRepository.findByNumber(number);
     }
-
 
 }

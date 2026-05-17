@@ -9,6 +9,12 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+/**
+ * Банковская карта пользователя.
+ * Поддерживает дебетовые и кредитные карты,
+ * связанные с банковским счетом.</p>
+ */
+
 @Entity
 @Table(name = "card")
 public class Card {
@@ -32,7 +38,8 @@ public class Card {
     @JoinColumn(name = "accountId")
     private Account account;
 
-    public Card(){}
+    public Card() {
+    }
 
     public long getId() {
         return id;

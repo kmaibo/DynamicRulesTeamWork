@@ -1,31 +1,39 @@
 package pro.sky.telegrambot.service.bankOperation;
 
 import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 import pro.sky.telegrambot.enums.TypeTransactions;
 import pro.sky.telegrambot.model.primary.Account;
 import pro.sky.telegrambot.model.primary.Transactions;
 import pro.sky.telegrambot.repository.primary.AccountRepository;
-import pro.sky.telegrambot.repository.primary.CardRepository;
 import pro.sky.telegrambot.repository.primary.TransactionsRepository;
 
 import java.math.BigDecimal;
+
+/**
+ * Сервис для выполнения операций переводов между счетами.
+ * Обеспечивает контролируемый перевод средств с проверкой входных данных
+ */
 
 @Service
 public class TransferService {
 
     private final TransactionsRepository transactionsRepository;
     private final AccountRepository accountRepository;
-    private final CardRepository cardRepository;
 
     public TransferService(TransactionsRepository transactionsRepository,
-                           AccountRepository accountRepository,
-                           CardRepository cardRepository) {
+                           AccountRepository accountRepository) {
         this.transactionsRepository = transactionsRepository;
         this.accountRepository = accountRepository;
-        this.cardRepository = cardRepository;
     }
-
+/**
+ * Метод выполняет операцию перевода средств между счетами банковского аккаунта.
+ * При выполнении метода создается транзакция о переводе у обоих аккаунтов
+ * @param amount сумма перевода
+ * @param fromId служит для поиска аккаунта с которого осуществляется перевод
+ * @param toId служит для поиска аккаунта которому этот перевод предназначен
+ */
     @Transactional
     public void transfer(String fromId, String toId, BigDecimal amount) {
         Account fromAccount = accountRepository.findByPhone(fromId);

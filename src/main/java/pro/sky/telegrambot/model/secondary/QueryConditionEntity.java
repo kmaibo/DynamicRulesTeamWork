@@ -1,6 +1,7 @@
 package pro.sky.telegrambot.model.secondary;
 
 import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,11 @@ import lombok.Setter;
 
 import java.util.List;
 import java.util.UUID;
+
+/**
+ * Условие динамического правила рекомендации.
+ * Определяет тип запроса, аргументы условия и признак отрицания результата.
+ */
 
 @Entity
 @Table(name = "query_conditions")
@@ -34,6 +40,5 @@ public class QueryConditionEntity {
 
     @Column(name = "negate", nullable = false)
     private boolean negate;
-
 
 }

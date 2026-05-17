@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.*;
 import pro.sky.telegrambot.model.primary.Users;
 import pro.sky.telegrambot.service.UserService;
 
+/**
+ * REST контроллер для управления пользователями.
+ */
+
 @RestController
 @RequestMapping("/users")
 public class UserController {

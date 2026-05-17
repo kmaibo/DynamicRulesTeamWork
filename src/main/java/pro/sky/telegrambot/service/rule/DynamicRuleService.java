@@ -1,6 +1,5 @@
 package pro.sky.telegrambot.service.rule;
 
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +12,10 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
+
+/**
+ * Сервис управления динамическими правилами рекомендаций.
+ */
 
 @Service
 @RequiredArgsConstructor
@@ -67,7 +70,8 @@ public class DynamicRuleService {
     }
 
     @Transactional(readOnly = true)
-    public boolean existsByProductId(UUID productId) { return ruleRepository.existsByProductId(productId);
+    public boolean existsByProductId(UUID productId) {
+        return ruleRepository.existsByProductId(productId);
     }
 
     public DynamicRuleDto createRule(@Valid DynamicRuleDto request) {

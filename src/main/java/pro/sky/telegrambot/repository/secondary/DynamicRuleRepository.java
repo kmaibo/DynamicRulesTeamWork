@@ -9,6 +9,8 @@ import java.util.UUID;
 
 public interface DynamicRuleRepository extends JpaRepository<RuleEntity, UUID> {
     void deleteByProductId(UUID productId);
+
     Optional<RuleEntity> findByProductId(UUID productId);
+
     boolean existsByProductId(UUID productId);
 }

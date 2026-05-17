@@ -1,7 +1,12 @@
 package pro.sky.telegrambot.model.telegram;
+
 import javax.persistence.*;
 
 import java.time.LocalDateTime;
+
+/**
+ * Пользователь Telegram-бота.
+ */
 
 @Entity
 @Table(name = "user_tgbot")

@@ -1,14 +1,19 @@
 package pro.sky.telegrambot.model.primary;
 
 import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pro.sky.telegrambot.enums.TypeTransactions;
 
-
 import java.math.BigDecimal;
+
+/**
+ * Финансовая транзакция банковского аккаунта.
+ * Содержит информацию о типе операции, сумме и связанных счетах.</p>
+ */
 
 @Entity
 @NoArgsConstructor

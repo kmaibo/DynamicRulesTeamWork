@@ -6,10 +6,14 @@ import pro.sky.telegrambot.repository.primary.UserRepository;
 
 import java.util.List;
 
+/**
+ * Сервис для управления пользователями приложения
+ */
+
 @Service
 public class UserService {
 
-   private final UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;

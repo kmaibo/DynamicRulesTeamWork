@@ -4,15 +4,19 @@ import org.springframework.stereotype.Service;
 import pro.sky.telegrambot.model.primary.Account;
 import pro.sky.telegrambot.repository.primary.AccountRepository;
 
+/**
+ * Сервис для управления аккаунтами пользователей.
+ * Представляет CRUD-операции для сущностей Account
+ */
+
 @Service
 public class AccountService {
 
     private final AccountRepository accountRepository;
-    private final UserService userService;
 
-    public AccountService(AccountRepository accountRepository, UserService userService) {
+
+    public AccountService(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
-        this.userService = userService;
     }
 
     public Account findById(Long id) {
@@ -28,7 +32,7 @@ public class AccountService {
     }
 
     public Account update(long id, Account account) {
-        Account edited =  accountRepository.findById(id).orElseThrow();
+        Account edited = accountRepository.findById(id).orElseThrow();
         edited.setPhone(account.getPhone());
         edited.setEmail(account.getEmail());
         edited.setPassword(account.getPassword());

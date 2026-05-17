@@ -94,12 +94,14 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
         }
         return sb.toString();
     }
+
     private void sendHelp(Long chatId) {
         String help = "👋 Здравствуйте! Я бот-рекомендатель.nn" +
                 "Чтобы получить список предложений, используйте команду:n" +
                 "/recommend <имя_или_фамилия>";
         sendMessage(chatId, help);
     }
+
     private void sendMessage(Long chatId, String text) {
         telegramBot.execute(new SendMessage(chatId, text));
     }

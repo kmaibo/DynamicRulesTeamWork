@@ -1,6 +1,7 @@
 package pro.sky.telegrambot.model.secondary;
 
 import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,10 +10,16 @@ import lombok.Setter;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Сущность динамического правила рекомендации продукта.
+ * Содержит информацию о продукте и набор условий,
+ * определяющих возможность показа рекомендации пользователю.</p>
+ */
 
 @Entity
 @Table(name = "dynamic_rules")
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class RuleEntity {

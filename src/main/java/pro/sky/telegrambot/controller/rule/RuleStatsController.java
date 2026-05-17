@@ -16,6 +16,11 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * REST контроллер статистики динамических правил рекомендаций.
+ * Возвращает количество срабатываний каждого правила.
+ */
+
 @RestController
 @RequestMapping("/rule")
 public class RuleStatsController {

@@ -1,11 +1,12 @@
 package pro.sky.telegrambot.repository.secondary;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
-@Repository // ОБЯЗАТЕЛЬНО ДОЛЖНО БЫТЬ ТУТ
+@Repository
 @RequiredArgsConstructor
 public class UserKnowledgeRepositoryImpl implements UserKnowledgeRepository {
     private final JdbcTemplate jdbcTemplate;

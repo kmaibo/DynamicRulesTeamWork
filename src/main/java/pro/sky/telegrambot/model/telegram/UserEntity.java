@@ -1,9 +1,13 @@
 package pro.sky.telegrambot.model.telegram;
 
-
 import javax.persistence.*;
 
 import java.util.Set;
+
+/**
+ * Пользователь Telegram системы рекомендаций.
+ */
+
 @Entity
 @Table(name = "users")
 public class UserEntity {
@@ -21,10 +25,17 @@ public class UserEntity {
     )
     private Set<ProductEntity> recommendations;
 
-    // Геттеры
-    public String getFirstName() { return firstName; }
-    public String getLastName() { return lastName; }
-    public Set<ProductEntity> getRecommendations() { return recommendations; }
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Set<ProductEntity> getRecommendations() {
+        return recommendations;
+    }
 
 }
 

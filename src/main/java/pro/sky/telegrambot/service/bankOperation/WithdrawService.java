@@ -10,6 +10,11 @@ import pro.sky.telegrambot.repository.primary.TransactionsRepository;
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
 
+/**
+ * Сервис для выполнения операций снятие средств со счета.
+ * Обеспечивает контролируемое снятие средств с проверкой входных данных
+ */
+
 @Service
 public class WithdrawService {
 
@@ -21,11 +26,21 @@ public class WithdrawService {
         this.transactionsRepository = transactionsRepository;
     }
 
+    /**
+     * Метод выполняет операцию снятие средств
+     * При выполнении создается транзакция о снятии средств со счета
+     * @param amount сумма которую нужно снять
+     * @param id служит для поиска аккаунта с которого хотят снять средства
+     */
+
     @Transactional
     public void withdraw(long id, BigDecimal amount) {
         Account fromAccount = accountRepository.findById(id).orElseThrow();
         Transactions transactions = new Transactions();
 
+        if (amount.compareTo(fromAccount.getBalance()) < 0) {
+            throw new IllegalArgumentException("There are not enough funds in the account");
+        }
         transactions.setType(TypeTransactions.WITHDRAW);
         transactions.setAmount(amount);
         transactions.setAccount(fromAccount);

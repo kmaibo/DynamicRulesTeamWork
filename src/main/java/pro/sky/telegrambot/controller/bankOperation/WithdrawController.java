@@ -6,6 +6,11 @@ import pro.sky.telegrambot.service.bankOperation.WithdrawService;
 
 import java.math.BigDecimal;
 
+/**
+ * REST контроллер для снятия с банковского счета
+ */
+
+
 @RestController
 @RequestMapping("/withdraw")
 public class WithdrawController {

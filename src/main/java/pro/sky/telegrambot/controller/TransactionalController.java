@@ -7,6 +7,10 @@ import pro.sky.telegrambot.service.TransactionsService;
 
 import java.util.List;
 
+/**
+ * REST контроллер для работы с банковскими транзакциями
+ */
+
 @RestController
 @RequestMapping("/transactions")
 public class TransactionalController {

@@ -9,6 +9,12 @@ import pro.sky.telegrambot.dto.ServiceInfo;
 
 import java.util.Properties;
 
+/**
+ * REST контроллер для служебных операций управления сервисом.
+ * Предоставляет эндпоинты для получения информации о сервисе
+ * и выполнения административных действий.
+ */
+
 @RestController
 @RequestMapping("/management")
 public class ManagementController {

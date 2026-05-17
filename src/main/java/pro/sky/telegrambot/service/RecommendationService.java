@@ -5,8 +5,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Сервис генерации персональных рекомендаций для пользователей.
+ * Возвращает случайное сообщение для пользователя
+ */
+
 @Service
 public class RecommendationService {
+
+    private final Random random = new Random();
 
     private final List<String> recommendations = List.of(
             "«Только для своих ❤ Лучшие предложения в нашем телеграм-канале...»",
@@ -19,7 +26,7 @@ public class RecommendationService {
     public String getPersonalizedRecommendation(String username) {
         String baseMessage = String.format("Привет, %s! ", username);
         String randomRecommendation = recommendations.get(
-                new Random().nextInt(recommendations.size())
+                random.nextInt(recommendations.size())
         );
         return baseMessage + randomRecommendation;
     }

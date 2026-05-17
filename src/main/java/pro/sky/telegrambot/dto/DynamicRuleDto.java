@@ -1,4 +1,3 @@
-
 package pro.sky.telegrambot.dto;
 
 import lombok.AllArgsConstructor;

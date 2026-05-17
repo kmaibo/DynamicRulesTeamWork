@@ -4,6 +4,12 @@ import javax.persistence.*;
 
 import java.time.LocalDate;
 
+/**
+ * Пользователь системы.
+ * Хранит базовую персональную информацию пользователя,
+ * включая контактные данные и дату рождения.
+ */
+
 @Entity
 
 @Table(name = "users")
@@ -18,7 +24,8 @@ public class Users {
     private String phone;
     private LocalDate birth;
 
-    public  Users(){}
+    public Users() {
+    }
 
     public long getId() {
         return id;

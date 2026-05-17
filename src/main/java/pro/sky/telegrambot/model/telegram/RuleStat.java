@@ -4,6 +4,11 @@ import pro.sky.telegrambot.model.secondary.RuleEntity;
 
 import javax.persistence.*;
 
+/**
+ * Статистика использования динамического правила рекомендаций.
+ * Хранит количество срабатываний правила.
+ */
+
 @Entity
 @Table(name = "rule_stats")
 public class RuleStat {

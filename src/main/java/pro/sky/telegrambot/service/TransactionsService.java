@@ -6,6 +6,10 @@ import pro.sky.telegrambot.repository.primary.TransactionsRepository;
 
 import java.util.List;
 
+/**
+ * Сервис для управления транзакциями операций аккаунтов
+ */
+
 @Service
 public class TransactionsService {
 
