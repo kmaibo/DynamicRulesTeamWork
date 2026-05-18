@@ -1,6 +1,6 @@
 package pro.sky.telegrambot.model.telegram;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "bot_users_state")

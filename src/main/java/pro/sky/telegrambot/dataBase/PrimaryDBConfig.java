@@ -1,6 +1,6 @@
 package pro.sky.telegrambot.dataBase;
 
-import javax.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityManagerFactory;
 
 
 

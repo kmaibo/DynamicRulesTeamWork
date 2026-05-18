@@ -3,7 +3,7 @@ package pro.sky.telegrambot.model.primary;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import pro.sky.telegrambot.enums.TypeCard;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 
 import java.math.BigDecimal;

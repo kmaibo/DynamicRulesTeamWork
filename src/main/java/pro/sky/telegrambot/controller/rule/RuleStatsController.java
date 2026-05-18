@@ -1,5 +1,7 @@
 package pro.sky.telegrambot.controller.rule;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,9 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/rule")
+@Tag(
+        name = "Rule Statistics",
+        description = "Statistics for dynamic rules usage")
 public class RuleStatsController {
 
     private final RuleStatRepository statsRepository;
@@ -29,6 +34,7 @@ public class RuleStatsController {
         this.ruleRepository = ruleRepository;
     }
 
+    @Operation(summary = "Get rule usage statistics")
     @GetMapping("/stats")
     public ResponseEntity<Map<String, List<RuleStatDto>>> getRuleStats() {
         List<RuleStatDto> statsDtos =

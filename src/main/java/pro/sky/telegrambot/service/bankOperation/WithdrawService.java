@@ -9,7 +9,7 @@ import pro.sky.telegrambot.model.primary.Transactions;
 import pro.sky.telegrambot.repository.primary.AccountRepository;
 import pro.sky.telegrambot.repository.primary.TransactionsRepository;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import java.math.BigDecimal;
 
 @Service

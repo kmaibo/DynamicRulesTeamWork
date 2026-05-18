@@ -2,7 +2,7 @@ package pro.sky.telegrambot.model.telegram;
 
 import pro.sky.telegrambot.model.secondary.RuleEntity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "rule_stats")

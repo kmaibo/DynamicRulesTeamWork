@@ -11,7 +11,7 @@ import pro.sky.telegrambot.model.secondary.QueryConditionEntity;
 import pro.sky.telegrambot.model.secondary.RuleEntity;
 import pro.sky.telegrambot.repository.secondary.DynamicRuleRepository;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;

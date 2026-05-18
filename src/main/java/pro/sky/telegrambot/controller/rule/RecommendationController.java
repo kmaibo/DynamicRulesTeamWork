@@ -1,6 +1,9 @@
 
 package pro.sky.telegrambot.controller.rule;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,13 +21,15 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/recommendation")
 @RequiredArgsConstructor
+@Tag(name = "Recommendations", description = "Rule-based recommendation engine API")
 public class RecommendationController {
 
     private final DynamicRuleService dynamicRuleService;
     private final DynamicRuleEvaluator dynamicRuleEvaluator;
 
+    @Operation(summary = "Get personalized recommendations for user")
     @GetMapping("/{userId}")
-    public ResponseEntity<List<DynamicRuleDto>> getRecommendations(@PathVariable UUID userId) {
+    public ResponseEntity<List<DynamicRuleDto>> getRecommendations(@Parameter(description = "Telegram Bot User UUID") @PathVariable UUID userId) {
         List<DynamicRuleDto> allRules = dynamicRuleService.getAllRules();
         List<DynamicRuleDto> applicable = allRules.stream()
                 .filter(rule -> dynamicRuleEvaluator.evaluate(rule, userId))

@@ -1,5 +1,7 @@
 package pro.sky.telegrambot.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,13 +13,16 @@ import java.util.Properties;
 
 @RestController
 @RequestMapping("/management")
+@Tag(name = "Management", description = "System management and monitoring endpoints")
 public class ManagementController {
 
+    @Operation(summary = "Clear application caches")
     @PostMapping("/clear-caches")
     public ResponseEntity<Void> clearCaches() {
         return ResponseEntity.ok().build();
     }
 
+    @Operation(summary = "Get service information (name + version)")
     @GetMapping("/info")
     public ResponseEntity<ServiceInfo> getServiceInfo() {
         ServiceInfo info = new ServiceInfo("Recommendation Service", getVersion());
