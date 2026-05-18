@@ -18,6 +18,7 @@
 - PostgreSQL
 - Maven
 - Telegram Bot API
+- Swagger
 
 ---
 
@@ -108,3 +109,9 @@ PostgreSQL: подключение через DB_URL
 - Bot не отвечает
 проверь BOT_TOKEN
 проверь интернет доступ
+
+## Swagger/OpenAPI
+
+Документация API доступна:
+
+http://localhost:8080/swagger-ui/index.html
