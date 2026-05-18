@@ -26,9 +26,11 @@ public class CardService {
         log.info("card create");
         log.error("not implemented");
 
-        Account account = accountRepository.findById(accountId).orElse(null);
+        Account account = accountRepository.findById(accountId).orElseThrow();
+
         card.setAccount(account);
-        card.setBalance(accountRepository.findById(accountId).get().getBalance());
+        card.setBalance(account.getBalance());
+
         return cardRepository.save(card);
     }
 

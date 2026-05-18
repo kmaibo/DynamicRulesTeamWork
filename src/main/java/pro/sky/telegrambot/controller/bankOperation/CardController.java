@@ -30,10 +30,12 @@ public class CardController {
 
     @GetMapping("/{number}")
     public ResponseEntity<Card> findByNumber(@PathVariable String number) {
-        cardService.findByNumber(number);
-        if (cardService.findByNumber(number) != null) {
-            return ResponseEntity.noContent().build();
+        Card card = cardService.findByNumber(number);
+
+        if (card == null) {
+            return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok().body(cardService.findByNumber(number));
+
+        return ResponseEntity.ok(card);
     }
 }

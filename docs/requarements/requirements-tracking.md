@@ -9,10 +9,10 @@
 | US-05 | Рекомендации через API | #5 | feature/api                 | Готово     |
 | US-06 | Telegram-бот           | #6 | feature/tgBot               | Готово     |
 | US-07 | Сброс кеша             | #7 | feature/tgBot               | Готово     |
-| US-08 | Информация о сервисе   | #8 | feture/tgBot                | Готово     |
-| NFR-01 | Производительность     | #9 | -                           | Готово     |
+| US-08 | Информация о сервисе   | #8 | feature/tgBot               | Готово     |
+| NFR-01 | Производительность     | #9 | feature/optimisedSQL        | Готово     |
 | NFR-02 | Caffeine кеширование   | #10 | frature/tgBot               | Готово     |
 | NFR-03 | Liquibase              | #11 | feature/dataBase            | Готово     |
 | NFR-04 | Три БД                 | #12 | feature/dataBase            | Готово     |
-| NFR-05 | Логирование            | #13 | -                           | Готово     |
+| NFR-05 | Логирование            | #13 | feature/logger              | Готово     |
 | NFR-06 | Swagger                | #14 | feature/final-documentation | В процессе |

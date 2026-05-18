@@ -31,16 +31,20 @@ public class RuleStatsController {
 
     @GetMapping("/stats")
     public ResponseEntity<Map<String, List<RuleStatDto>>> getRuleStats() {
-        List<RuleEntity> allRules = ruleRepository.findAll();
-        List<RuleStatDto> statsDtos = allRules.stream()
-                .map(rule -> {
-                    Optional<RuleStat> statsOpt = statsRepository.findByRuleId(rule.getId());
-                    Long count = statsOpt.map(RuleStat::getCount).orElse(0L);
-                    return new RuleStatDto(rule.getId(), count);
-                })
-                .collect(Collectors.toList());
+        List<RuleStatDto> statsDtos =
+                statsRepository.findAllWithRules()
+                        .stream()
+                        .map(stat ->
+                                new RuleStatDto(
+                                        stat.getRule().getId(),
+                                        stat.getCount()
+                                )
+                        )
+                        .collect(Collectors.toList());
+
         Map<String, List<RuleStatDto>> response = new HashMap<>();
         response.put("stats", statsDtos);
+
         return ResponseEntity.ok(response);
     }
 }

@@ -22,8 +22,8 @@ public class AccountController {
         if (id == null) {
             return ResponseEntity.notFound().build();
         }
-        accountService.findById(id);
-        return ResponseEntity.ok().body(accountService.findById(id));
+        Account account = accountService.findById(id);
+        return ResponseEntity.ok(account);
     }
 
     @PostMapping
