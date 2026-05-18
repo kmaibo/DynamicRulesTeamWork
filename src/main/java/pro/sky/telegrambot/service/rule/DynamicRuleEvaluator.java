@@ -1,0 +1,65 @@
+package pro.sky.telegrambot.service.rule;
+
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import pro.sky.telegrambot.dto.DynamicRuleDto;
+import pro.sky.telegrambot.repository.secondary.UserKnowledgeRepositoryImpl;
+
+import java.util.UUID;
+
+@Service
+@RequiredArgsConstructor
+public class DynamicRuleEvaluator {
+
+    private final Logger logger = LoggerFactory.getLogger(DynamicRuleEvaluator.class);
+
+    private final UserKnowledgeRepositoryImpl userKnowledgeRepositoryImpl;
+
+    public boolean evaluate(DynamicRuleDto rule, UUID userId) {
+        if (rule.getRule() == null) return true;
+
+        for (DynamicRuleDto.QueryConditionDto cond : rule.getRule()) {
+            boolean result = evaluateCondition(userId, cond);
+            if (cond.isNegate()) {
+                result = !result;
+            }
+
+            if (!result) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean evaluateCondition(UUID userId, DynamicRuleDto.QueryConditionDto cond) {
+
+        logger.info("evaluate condition");
+        logger.error("not implemented");
+
+        return switch (cond.getQuery()) {
+            case "USER_OF" -> userKnowledgeRepositoryImpl.isUserOf(userId, cond.getArguments().get(0));
+            case "ACTIVE_USER_OF" -> userKnowledgeRepositoryImpl.isActiveUserOf(userId, cond.getArguments().get(0));
+            case "TRANSACTION_SUM_COMPARE" -> {
+                var args = cond.getArguments();
+                yield userKnowledgeRepositoryImpl.compareTransactionSum(
+                        userId,
+                        args.get(0),
+                        args.get(1),
+                        args.get(2),
+                        Integer.parseInt(args.get(3))
+                );
+            }
+            case "TRANSACTION_SUM_COMPARE_DEPOSIT_WITHDRAW" -> {
+                var args = cond.getArguments();
+                yield userKnowledgeRepositoryImpl.compareDepositWithdraw(
+                        userId,
+                        args.get(0),
+                        args.get(1)
+                );
+            }
+            default -> throw new IllegalArgumentException("неизвестный запрос: " + cond.getQuery());
+        };
+    }
+}
