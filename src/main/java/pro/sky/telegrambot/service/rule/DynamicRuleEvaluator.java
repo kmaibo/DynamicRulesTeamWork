@@ -1,6 +1,8 @@
 package pro.sky.telegrambot.service.rule;
 
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import pro.sky.telegrambot.dto.DynamicRuleDto;
 import pro.sky.telegrambot.repository.secondary.UserKnowledgeRepositoryImpl;
@@ -10,6 +12,8 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class DynamicRuleEvaluator {
+
+    private final Logger logger = LoggerFactory.getLogger(DynamicRuleEvaluator.class);
 
     private final UserKnowledgeRepositoryImpl userKnowledgeRepositoryImpl;
 
@@ -30,6 +34,10 @@ public class DynamicRuleEvaluator {
     }
 
     private boolean evaluateCondition(UUID userId, DynamicRuleDto.QueryConditionDto cond) {
+
+        logger.info("evaluate condition");
+        logger.error("not implemented");
+
         return switch (cond.getQuery()) {
             case "USER_OF" -> userKnowledgeRepositoryImpl.isUserOf(userId, cond.getArguments().get(0));
             case "ACTIVE_USER_OF" -> userKnowledgeRepositoryImpl.isActiveUserOf(userId, cond.getArguments().get(0));

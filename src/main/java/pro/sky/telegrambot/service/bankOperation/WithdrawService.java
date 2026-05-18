@@ -1,5 +1,7 @@
 package pro.sky.telegrambot.service.bankOperation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import pro.sky.telegrambot.enums.TypeTransactions;
 import pro.sky.telegrambot.model.primary.Account;
@@ -13,6 +15,8 @@ import java.math.BigDecimal;
 @Service
 public class WithdrawService {
 
+    private final Logger log = LoggerFactory.getLogger(WithdrawService.class);
+
     private final AccountRepository accountRepository;
     private final TransactionsRepository transactionsRepository;
 
@@ -23,6 +27,10 @@ public class WithdrawService {
 
     @Transactional
     public void withdraw(long id, BigDecimal amount) {
+
+        log.info("withdraw");
+        log.error("not implemented");
+
         Account fromAccount = accountRepository.findById(id).orElseThrow();
         Transactions transactions = new Transactions();
 

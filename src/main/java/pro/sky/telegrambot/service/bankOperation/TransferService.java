@@ -1,6 +1,9 @@
 package pro.sky.telegrambot.service.bankOperation;
 
 import javax.transaction.Transactional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import pro.sky.telegrambot.enums.TypeTransactions;
 import pro.sky.telegrambot.model.primary.Account;
@@ -13,6 +16,8 @@ import java.math.BigDecimal;
 
 @Service
 public class TransferService {
+
+    private final Logger log = LoggerFactory.getLogger(TransferService.class);
 
     private final TransactionsRepository transactionsRepository;
     private final AccountRepository accountRepository;
@@ -28,6 +33,10 @@ public class TransferService {
 
     @Transactional
     public void transfer(String fromId, String toId, BigDecimal amount) {
+
+        log.info("transfer");
+        log.error("not implemented");
+
         Account fromAccount = accountRepository.findByPhone(fromId);
         Account toAccount = accountRepository.findByPhone(toId);
         if (fromAccount.getBalance().compareTo(amount) < 0) {

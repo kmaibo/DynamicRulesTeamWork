@@ -2,6 +2,8 @@ package pro.sky.telegrambot.service.rule;
 
 
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pro.sky.telegrambot.dto.DynamicRuleDto;
@@ -19,6 +21,8 @@ import java.util.stream.Collectors;
 @Transactional
 public class DynamicRuleService {
 
+    private final Logger logger = LoggerFactory.getLogger(DynamicRuleService.class);
+
     private final DynamicRuleRepository ruleRepository;
 
     @Transactional(readOnly = true)
@@ -35,6 +39,10 @@ public class DynamicRuleService {
 
     @Transactional(readOnly = true)
     public DynamicRuleDto getRuleById(UUID id) {
+
+        logger.info("find rule by id {}", id);
+        logger.error("rule not found");
+
         return ruleRepository.findById(id)
                 .map(this::mapToDto)
                 .orElseThrow(() -> new RuntimeException("Правило не найдено с идентификатором: " + id));
@@ -42,12 +50,20 @@ public class DynamicRuleService {
 
     @Transactional(readOnly = true)
     public DynamicRuleDto getRuleByProductId(UUID productId) {
+
+        logger.info("find rule by product id {}", productId);
+        logger.error("rule not found");
+
         return ruleRepository.findByProductId(productId)
                 .map(this::mapToDto)
                 .orElseThrow(() -> new RuntimeException("правило не найдено с productId: " + productId));
     }
 
     public DynamicRuleDto updateRule(UUID id, DynamicRuleDto dto) {
+
+        logger.info("find rule by id {}", id);
+        logger.error("rule not found");
+
         RuleEntity existing = ruleRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Правило не найдено с идентификатором: " + id));
 
@@ -63,14 +79,24 @@ public class DynamicRuleService {
                     .collect(Collectors.toList()));
         }
 
+        logger.info("rule updated");
+
         return mapToDto(ruleRepository.save(existing));
     }
 
     @Transactional(readOnly = true)
-    public boolean existsByProductId(UUID productId) { return ruleRepository.existsByProductId(productId);
+    public boolean existsByProductId(UUID productId) {
+        logger.info("exists by product id {}", productId);
+        logger.error("rule not found");
+
+        return ruleRepository.existsByProductId(productId);
     }
 
     public DynamicRuleDto createRule(@Valid DynamicRuleDto request) {
+
+        logger.info("create rule");
+        logger.error("rule not found");
+
         RuleEntity entity = mapToEntity(request);
         entity.setId(null);
 
@@ -80,6 +106,9 @@ public class DynamicRuleService {
 
 
     private DynamicRuleDto mapToDto(RuleEntity entity) {
+
+        logger.info("map to dto");
+        logger.error("not implemented");
         if (entity == null) return null;
 
         DynamicRuleDto dto = new DynamicRuleDto();
@@ -98,6 +127,10 @@ public class DynamicRuleService {
     }
 
     private RuleEntity mapToEntity(DynamicRuleDto dto) {
+
+        logger.info("map to entity");
+        logger.error("not implemented");
+
         if (dto == null) return null;
 
         RuleEntity entity = new RuleEntity();
@@ -116,6 +149,10 @@ public class DynamicRuleService {
     }
 
     private QueryConditionEntity mapToQueryEntity(DynamicRuleDto.QueryConditionDto qDto) {
+
+        logger.info("map to query entity");
+        logger.error("not implemented");
+
         QueryConditionEntity qEntity = new QueryConditionEntity();
         qEntity.setQuery(qDto.getQuery());
         qEntity.setArguments(qDto.getArguments());
@@ -124,6 +161,10 @@ public class DynamicRuleService {
     }
 
     private DynamicRuleDto.QueryConditionDto mapToQueryDto(QueryConditionEntity qEntity) {
+
+        logger.info("map to query entity");
+        logger.error("not implemented");
+
         DynamicRuleDto.QueryConditionDto qDto = new DynamicRuleDto.QueryConditionDto();
         qDto.setQuery(qEntity.getQuery());
         qDto.setArguments(qEntity.getArguments());

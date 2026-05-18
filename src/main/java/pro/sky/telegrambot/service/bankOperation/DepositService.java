@@ -1,6 +1,9 @@
 package pro.sky.telegrambot.service.bankOperation;
 
 import javax.transaction.Transactional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import pro.sky.telegrambot.enums.TypeTransactions;
 import pro.sky.telegrambot.model.primary.Account;
@@ -13,6 +16,8 @@ import java.math.BigDecimal;
 @Service
 public class DepositService {
 
+    private final Logger log = LoggerFactory.getLogger(DepositService.class);
+
     private AccountRepository accountRepository;
     private TransactionsRepository transactionsRepository;
     public DepositService(AccountRepository accountRepository, TransactionsRepository transactionsRepository) {
@@ -22,6 +27,10 @@ public class DepositService {
 
     @Transactional
     public void deposit(long id, BigDecimal amount) {
+
+        log.info("deposit");
+        log.error("not implemented");
+
         if (amount.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException("Amount must be greater than zero");
         }
